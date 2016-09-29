@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where should we eat tonight</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -13,19 +14,29 @@
 <body>
     <div id = "container">
         <div id="interface">
+            <h4 id="welcome-message">Where do you wanna eat dinner tonight?</h4>
             <div id = "search" class="input-group">
-              <input type="text" class="form-control" placeholder="What do you wanna eat tonight?">
+              <input type="text" class="form-control" placeholder="Try to describe it">
               <span class="input-group-btn">
-                <button class="btn btn-secondary btn-warning" type="button">Go!</button>
+                <button class="btn btn-secondary btn-warning" type="button">+</button>
               </span>
             </div>
+            <ul id = "recommend-options-list" data-bind="foreach:$root.markers">
+                <li>
+                    <div class = "list-group recommend-options-list-item" >
+                        <a href="#" class="list-group-item activ grey-text">
+                            <h4 class="list-group-item-heading grey-text" data-bind="text: $data.information.name"></h4>
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div id="map"></div>
     </div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/app-Map-my-meal.js"></script>
-    <script src="js/knockout-3.4.0.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH5SHes3difWKTzBx837G0YksDGmXWjUw&v=3&callback=initMap"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/knockout-3.4.0.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH5SHes3difWKTzBx837G0YksDGmXWjUw&v=3&&libraries=places&callback=model.initMap"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/app-Map-my-meal.js"></script>
 </html>
