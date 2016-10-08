@@ -5,6 +5,10 @@ html,body {
     padding: 0;
 }
 
+ul {
+  list-style-type: none;
+  padding: 10px;
+}
 #map {
     position:absolute;
     height: 100%;
@@ -13,43 +17,108 @@ html,body {
     z-index: +1;
 
 }
-
+#login-block{
+  padding: 10px;
+}
 #interface{
     position:absolute;
-    background-color: rgba(77, 136, 255,0.5);
+    background-color: rgba(77, 136, 255,0.75);
     height: 100%;
     width: 25%;
     float:left;
     box-shadow: 3px 3px 10px grey;
-    z-index: +2;
+    /*margin-top: 2.5%;
+    margin-bottom: 2.5%;*/
+    z-index: +10;
+    overflow: scroll;
+    overflow-x: hidden;
 
 }
+
+#interface::-webkit-scrollbar {
+    width: 1em;
+}
+
+#interface::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#interface::-webkit-scrollbar-thumb {
+  background-color: orange;
+  outline: 1px solid slategrey;
+}
+
 
 #search{
     padding:10px;
 }
 
-#title-message{
-    padding-top:30px;
-    text-align: center;
+#welcome-message{
+    padding:12px;
+    padding-bottom: 0px;
     color: white;
+}
+
+
+/*.recommend-options-list-item{
+    padding:10px;
+}*/
+.scroll{
+    overflow: scroll;
+}
+.grey-text{
+    color: grey !important;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  #map {
+    width: 100%;
+    height:100%;
+    z-index: +1;
+  }
+
+  #interface{
+    position:absolute;
+    background-color: rgba(77, 136, 255,0.75);
+    height: 100%;
+    width: 40%;
+    float:left;
+    box-shadow: 3px 3px 10px grey;
+    z-index: +10;
+
+  }
+  .small-window{
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   #map {
-    position:relative;
     width: 100%;
-    height:50%;
+    height:100%;
+    bottom:0px;
     z-index: +1;
 
   }
 
+  ul {
+    display:none;
+  }
   #interface{
     position:relative;
-    background-color: rgb(77, 136, 255);
+    background-color: rgba(77, 136, 255,0.75);
+    height: 50%;
     width: 100%;
-    height:50%;
+    float:left;
     box-shadow: 3px 3px 10px grey;
-    z-index: +2;
+    z-index: +10;
+
+  }
+  #welcome-message{
+    display:none;
+  }
+  #interface{
+    overflow-y: hidden;
   }
 }
